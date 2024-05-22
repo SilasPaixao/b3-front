@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { useState } from 'react'
 import Styles from './login-styles.scss'
 import { Footer, Input, LoginHeader, FormStatus } from '@/presentation/components'
 import Context from '@/presentation/contexts/form/form-context'
@@ -31,4 +31,4 @@ const Login: React.FC = () => {
   )
 }
 
-export default memo(Login)
+export default Login
