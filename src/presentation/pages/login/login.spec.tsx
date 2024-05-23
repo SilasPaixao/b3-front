@@ -8,7 +8,7 @@ type SutTypes = {
   sut: RenderResult
   validationStub: ValidationStub
 }
-
+//
 const makeSut = (): SutTypes => {
   const validationStub = new ValidationStub()
   validationStub.errorMessage = faker.random.words()
