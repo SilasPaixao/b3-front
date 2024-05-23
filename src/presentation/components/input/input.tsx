@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 import React, { useContext } from 'react'
 import Styles from './input-styles.scss'
 import Context from '@/presentation/contexts/form/form-context'
@@ -18,10 +19,10 @@ const Input: React.FC<Props> = (props: Props) => {
     })
   }
   const getStatus = (): string => {
-    return '🔴'
+    return error ? '🔴' : '🟢'
   }
   const getTitle = (): string => {
-    return error
+    return error || 'Tudo certo!'
   }
   return (
     <div className={Styles.inputWrap}>
