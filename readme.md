@@ -30,6 +30,7 @@ Essa sistema tem como objetivo mostrar as ações da bolsa de valores (B3) com m
 * Dependency Injection
 * Abstract Server
 * Composition Root
+* Builder
 
 > ## Metodologias e Designs
 
