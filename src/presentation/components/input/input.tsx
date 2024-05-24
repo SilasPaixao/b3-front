@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import React, { useContext } from 'react'
 import Styles from './input-styles.scss'
 import Context from '@/presentation/contexts/form/form-context'
