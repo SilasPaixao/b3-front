@@ -4,6 +4,8 @@
 
 # **b3 - Lista das ações com maior retorno anual desde 2000**
 
+Essa sistema tem como objetivo mostrar as ações da bolsa de valores (B3) com maior retorno anual desde o ano de 2000.
+
 ## [**Link para a documentação da API**]()
 
 > ## Princípios
@@ -34,6 +36,7 @@
 * TDD
 * Clean Architecture
 * DDD
+* Reactive Programming
 * Conventional Commits
 * GitFlow
 * Modular Design
@@ -82,9 +85,16 @@
 * Reset
 * Amend
 * Tag
+* Tag Anotada
 * Stash
 * Rebase
 * Merge
+* Add
+* Commit
+* Push
+* Pull
+* Shortlog
+* Status
 
 > ## Features do Typescript
 
