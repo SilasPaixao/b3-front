@@ -1,24 +1,24 @@
-import { RemoteLoadSurveyList } from '@/data/usecases'
-import { HttpGetClientSpy, mockRemoteSurveyListModel } from '@/data/test'
+import { RemoteLoadStockList } from '@/data/usecases'
+import { HttpGetClientSpy, mockRemoteStockListModel } from '@/data/test'
 import { HttpStatusCode } from '@/data/protocols/http'
 import { UnexpectedError, AccessDeniedError } from '@/domain/errors'
 import faker from 'faker'
 
 type SutTypes = {
-  sut: RemoteLoadSurveyList
-  httpGetClientSpy: HttpGetClientSpy<RemoteLoadSurveyList.Model[]>
+  sut: RemoteLoadStockList
+  httpGetClientSpy: HttpGetClientSpy<RemoteLoadStockList.Model[]>
 }
 
 const makeSut = (url = faker.internet.url()): SutTypes => {
-  const httpGetClientSpy = new HttpGetClientSpy<RemoteLoadSurveyList.Model[]>()
-  const sut = new RemoteLoadSurveyList(url, httpGetClientSpy)
+  const httpGetClientSpy = new HttpGetClientSpy<RemoteLoadStockList.Model[]>()
+  const sut = new RemoteLoadStockList(url, httpGetClientSpy)
   return {
     sut,
     httpGetClientSpy
   }
 }
 
-describe('RemoteLoadSurveyList', () => {
+describe('RemoteLoadStockList', () => {
   test('Should call HttpGetClient with correct URL', async () => {
     const url = faker.internet.url()
     const { sut, httpGetClientSpy } = makeSut(url)
@@ -53,29 +53,33 @@ describe('RemoteLoadSurveyList', () => {
     await expect(promise).rejects.toThrow(new UnexpectedError())
   })
 
-  test('Should return a list of SurveyModels if HttpGetClient returns 200', async () => {
+  test('Should return a list of StockModels if HttpGetClient returns 200', async () => {
     const { sut, httpGetClientSpy } = makeSut()
-    const httpResult = mockRemoteSurveyListModel()
+    const httpResult = mockRemoteStockListModel()
     httpGetClientSpy.response = {
       statusCode: HttpStatusCode.ok,
       body: httpResult
     }
-    const surveyList = await sut.loadAll()
-    expect(surveyList).toEqual([{
+    const stockList = await sut.loadAll()
+    expect(stockList).toEqual([{
       id: httpResult[0].id,
-      question: httpResult[0].question,
-      didAnswer: httpResult[0].didAnswer,
-      date: new Date(httpResult[0].date)
+      year: httpResult[0].year,
+      stock: httpResult[0].stock,
+      acronym: httpResult[0].acronym,
+      profit: httpResult[0].profit
     }, {
       id: httpResult[1].id,
-      question: httpResult[1].question,
-      didAnswer: httpResult[1].didAnswer,
-      date: new Date(httpResult[1].date)
-    }, {
+      year: httpResult[1].year,
+      stock: httpResult[1].stock,
+      acronym: httpResult[1].acronym,
+      profit: httpResult[1].profit
+    },
+    {
       id: httpResult[2].id,
-      question: httpResult[2].question,
-      didAnswer: httpResult[2].didAnswer,
-      date: new Date(httpResult[2].date)
+      year: httpResult[2].year,
+      stock: httpResult[2].stock,
+      acronym: httpResult[2].acronym,
+      profit: httpResult[2].profit
     }])
   })
 
@@ -84,7 +88,7 @@ describe('RemoteLoadSurveyList', () => {
     httpGetClientSpy.response = {
       statusCode: HttpStatusCode.noContent
     }
-    const surveyList = await sut.loadAll()
-    expect(surveyList).toEqual([])
+    const stockList = await sut.loadAll()
+    expect(stockList).toEqual([])
   })
 })

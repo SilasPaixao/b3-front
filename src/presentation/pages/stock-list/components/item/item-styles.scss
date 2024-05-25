@@ -1,6 +1,6 @@
 @import "../../../../styles/colors.scss";
 
-.surveyItemWrap {
+.stockItemWrap {
   height: 250px;
   background-color: $white;
   display: flex;
@@ -11,7 +11,7 @@
   margin-bottom: 24px;
   box-shadow: 0px 1px 3px -1px $black;
 
-  .surveyContent {
+  .stockContent {
     display: flex;
     flex-direction: row;
     border-radius: 8px 8px 0px 0px;
@@ -31,60 +31,58 @@
       right: -10px;
     }
 
-    time {
-      display: flex;
-      flex-direction: column;
-      background-color: $primaryLight;
-      color: $white;
-      border-radius: 8px;
-      margin-left: 24px;
-      align-self: center;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 100px;
-      flex-shrink: 0;
-
-      .day {
-        font-size: 40px;
-        font-weight: bold;
-      }
-
-      .month {
-        text-transform: lowercase;
-        margin: 0px 0px 5px;
-      }
-
-      .year {
-        font-size: 16px;
-      }
-    }
-
     p {
       font-size: 18px;
       margin: 24px;
       align-self: center;
       flex-grow: 1;
     }
+    .ano {
+      font-weight: bold;
+      color:azure;
+      padding: 2px 0 2px 8px;
+      border-radius: 5px;
+      background-color: $primary;
+    }
+    .lucro {
+      font-size: 18px;
+      font-weight: bold;
+      color: $valid;
+    }
+    .retorno {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 5px;
+      border-radius: 50%;
+      color:azure;
+      background-color: $max
+    }
+    .acronym {
+      font-weight: bold;
+      color:$primary;
+    }
   }
-
+  
   footer {
     background-color: $primary;
-    color: $white;
     line-height: 40px;
     text-transform: lowercase;
     text-align: center;
-    cursor: pointer;
     border-radius: 0px 0px 8px 8px;
 
     &:hover {
       background-color: $primaryDark;
     }
+    .link {
+      text-decoration: none;
+      font-weight: bold;
+      color:$white;
+    }
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .surveyItemWrap {
+  .stockItemWrap {
     flex-basis: 100%;
   }
 }

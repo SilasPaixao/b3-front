@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Styles from './spinner-styles.scss'
 import React from 'react'
 

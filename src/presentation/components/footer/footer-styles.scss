@@ -2,5 +2,15 @@
 
 .footer {
   background-color: $primary;
+  color: $white;
   height: 48px;
+  line-height: 40px;
+  text-transform: lowercase;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color:$white;
+  }
 }

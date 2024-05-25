@@ -1,11 +1,11 @@
 import Styles from './error-styles.scss'
-import { SurveyContext } from '@/presentation/pages/survey-list/components'
+import { StockContext } from '@/presentation/pages/stock-list/components'
 import React, { useContext } from 'react'
 
 const Error: React.FC = () => {
-  const { state, setState } = useContext(SurveyContext)
+  const { state, setState } = useContext(StockContext)
   const reload = (): void => {
-    setState({ surveys: [], error: '', reload: !state.reload })
+    setState({ stocks: [], error: '', reload: !state.reload })
   }
 
   return (

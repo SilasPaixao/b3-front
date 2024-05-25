@@ -13,4 +13,8 @@
   &.green {
     background-color: $valid;
   }
+
+  &.up {
+    background-color: $max;
+  }
 }

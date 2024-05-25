@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Styles from './input-styles.scss'
 import { FormContext } from '@/presentation/contexts'
 import React, { useContext, useRef } from 'react'
